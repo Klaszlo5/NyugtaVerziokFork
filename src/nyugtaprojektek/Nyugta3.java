@@ -4,46 +4,69 @@ tüntessük el a kézzel beírt szóközöket,
 a huf ne tartalmazzon eurót
 a kedvezmény helyett legyen szervízdíj, amit hozzá kell adni a végössdzeghez
 */
+
+import static java.lang.System.out;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Nyugta3 {
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        String szokoz=" ";
+
+        szokoz+=scan.nextLine();
+        scan.close();
+        
+        String str = null;
         String csillagok = "********************";
-        System.out.println(csillagok);
+        out.println(csillagok);
         //System.out.println("     Nyugta 3");
-        System.out.printf("%14s\n", "Nyugta 3");
-        System.out.println(csillagok);
+        out.printf("%14s\n", "Nyugta 3");
+        out.println(csillagok);
         
         final String HUF = "Ft";
-        int tetel1 = 350, tetel2 = 90, tetel3 = 1320;
-//        System.out.printf("Tétel 1:     %d %s\n", tetel1, huf);
-//        System.out.printf("Tétel 1:      %d %s\n", tetel2, huf);
-//        System.out.printf("Tétel 3:    %d %s\n", tetel3, huf);
-        System.out.printf("%10s: %5d %s\n", "Tétel 1", tetel1, HUF);
-        System.out.printf("%10s: %5d %s\n", "Tétel 2", tetel2, HUF);
-        System.out.printf("%10s: %5d %s\n", "Tétel 3", tetel3, HUF);
+        ArrayList<Integer> tetelek = new ArrayList<Integer>();
+        tetelek.add(350);
+        tetelek.add(90);
+        tetelek.add(1320);
+        for (int i = 0; i < tetelek.size(); i++) {
+             System.out.println(tetelek.get(i));
+        }
+        
 
         String duplaVonal = "====================";
-        System.out.println(duplaVonal);
+        out.println(duplaVonal);
         
-        int osszesen = tetel1 + tetel2 + tetel3;
-        //System.out.printf("Összesen:   %d %s\n", osszesen, huf);
-        System.out.printf("%10s: %5d %s\n", "Összesen", osszesen, HUF);
+        tetelek.add(350);
+        tetelek.add(90);
+        tetelek.add(1320);
+        int osszesen = 0;
+        for (int i = 0; i < tetelek.size(); i++) {
+             System.out.println(tetelek.get(i));
+             osszesen+=tetelek.get(i);
+        }
         
         String szaggatottVonal = "--------------------";
-        System.out.println(szaggatottVonal);
+        out.println(szaggatottVonal);
         
         int szervizDijMertek = 10;
-        int szervizDij = osszesen / szervizDijMertek;
+        int szervizDij =0;
+        while(osszesen >= szervizDijMertek){
+            osszesen -= szervizDijMertek;
+            szervizDij++;
+        }
         //System.out.printf("Kedvezmény:  %d %s\n", kedvezmeny, huf);
-        System.out.printf("%10s: %5d %s\n", "Szervízdíj", szervizDij, HUF);
-        System.out.printf("(%d%%)\n", szervizDijMertek);
+        out.printf("%10s: %5d %s\n", "Szervízdíj", szervizDij, HUF);
+        out.printf("(%d%%)\n", szervizDijMertek);
         
-        System.out.println(duplaVonal);
+        out.println(duplaVonal);
         
         //int fizetendo = osszesen - szervizDij;
         int fizetendo = osszesen + szervizDij;
         //System.out.printf("Fizetendő:  %d %s\n", fizetendo, huf);
-        System.out.printf("%10s:  %d %s\n", "Fizetendő", fizetendo, HUF);
+        out.printf("%10s:  %d %s\n", "Fizetendő", fizetendo, HUF);
         double euro = fizetendo / 350.0;
         //HUF = "\u20ac";//EZ NEM JÓ!!!!
         final String eur = "\u20ac";
@@ -52,23 +75,24 @@ public class Nyugta3 {
         /* 7.2 7 szélesen 2 tizedessel,a max: 1234.99
         *  a %10s  egy "" -t ír ki, ezzel tolom beljebb
         */
-        System.out.printf("%10s%7.2f %s\n","", euro, eur);//
+        out.printf("%10s%7.2f %s\n","", euro, eur);//
         
-        System.out.println(szaggatottVonal);
+        out.println(szaggatottVonal);
         
-        System.out.println("");
+        out.println("");
         String rovidVonal = "_______";
-        System.out.print(rovidVonal);
+        out.print(rovidVonal);
         String rovidVonalValaszto = "      ";
-        System.out.print(rovidVonalValaszto);
-        System.out.println(rovidVonal);
-        System.out.print(" Dátum");
-        System.out.print(rovidVonalValaszto);
-        System.out.println("   Név");
+        out.print(rovidVonalValaszto);
+        out.println(rovidVonal);
+        out.print(" Dátum");
+        out.print(rovidVonalValaszto);
+        out.println("   Név");
         
-        System.out.println(csillagok);    
-        System.out.println("        CÉG");
-        System.out.println(csillagok);
+        out.println(csillagok);    
+        out.println("        CÉG");
+        out.println(csillagok);
+        
     }
 
 }

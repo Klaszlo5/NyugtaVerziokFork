@@ -1,4 +1,8 @@
 package nyugtaprojektek;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /* Probléma:
 a 3. tétel árát 650-ről átírtuk 1320-ra.
 Így szinte minden változott, mindenhez hozzá kell nyúlni
@@ -9,78 +13,69 @@ azt kiszervezzük változóba és erre hivatkozunk
 public class Nyugta2 {
 
     public static void main(String[] args) {
-        //System.out.println("******************");
         String csillagok = "*******************";
         System.out.println(csillagok);
         System.out.println("     Nyugta 2");
-        //System.out.println("******************");
         System.out.println(csillagok);
-        
-        String huf = "Ft";
-        int tetel1 = 350, tetel2 = 90, tetel3 = 1320;
-        //System.out.println("Tétel 1:     350 Ft");
-        System.out.printf("Tétel 1:     %d %s\n", tetel1, huf);
-        //System.out.println("Tétel 2:      90 Ft");
-        System.out.printf("Tétel 1:      %d %s\n", tetel2, huf);
-        //System.out.println("Tétel 3:    1320 Ft");
-        System.out.printf("Tétel 3:    %d %s\n", tetel3, huf);
-
-        //System.out.println("==================");
+    }
+    public static void szamolsz(String huf){
+        Scanner scanner = new Scanner(System.in);
+        huf = "Ft";
+        ArrayList<Integer> tetelek = new ArrayList<Integer>();
+        tetelek.add(350);
+        tetelek.add(90);
+        tetelek.add(1320);
+        for (int i = 0; i < tetelek.size(); i++) {
+             System.out.println(tetelek.get(i));
+        }
+    }
+    public static void csikszam(String huf, int tetel1, int tetel2, int tetel3){
+        huf="ft";
+        tetel1 = 350; 
+        tetel2 = 90;
+        tetel3 = 1320;
         String duplaVonal = "===================";
         System.out.println(duplaVonal);
-        
-        //System.out.println("Összesen:   1090 Ft");
+        ArrayList<Integer> tetelek = new ArrayList<Integer>();
         int osszesen = tetel1 + tetel2 + tetel3;
-        System.out.printf("Összesen:   %d %s\n", osszesen, huf);
+        tetelek.add(350);
+        tetelek.add(90);
+        tetelek.add(1320);
+        for (int i = 0; i < tetelek.size(); i++) {
+             System.out.println(tetelek.get(i));
+        }
         
-        //System.out.println("------------------");
         String szaggatottVonal = "-------------------";
         System.out.println(szaggatottVonal);
         
         int kedvMertek = 10;
         int kedvezmeny = osszesen / kedvMertek;
-        //System.out.println("Kedvezmény:  109 Ft");
         System.out.printf("Kedvezmény:  %d %s\n", kedvezmeny, huf);
-        //System.out.println("(10%)");
         System.out.printf("(%d%%)\n", kedvMertek);
-        
-        //System.out.println("==================");
+
         System.out.println(duplaVonal);
-        
         int fizetendo = osszesen - kedvezmeny;
-        //System.out.println("Fizetendő:   981 Ft");
         System.out.printf("Fizetendő:  %d %s\n", fizetendo, huf);
         double euro = fizetendo / 350.0;
-        huf = "\u20ac";//EZ NEM JÓ!!!!
+        huf = "\u20ac";
         System.out.printf("            %f %s\n", euro, huf);
-        
-        
-        //System.out.println("------------------");
+    }
+    public static void szamk(String szaggatottVonal, String csillagok){
+        csillagok = "*******************";
+        szaggatottVonal = "-------------------";
         System.out.println(szaggatottVonal);
-        
         System.out.println("");
-        //System.out.print("_______");
-        //System.out.print("   ");
-        //System.out.println("_______");
-        
         String rovidVonal = "_______";
         System.out.print(rovidVonal);
         String rovidVonalValaszto = "     ";
         System.out.print(rovidVonalValaszto);
         System.out.println(rovidVonal);
-        
+
         System.out.print(" Dátum");
-        //System.out.print("   ");
         System.out.print(rovidVonalValaszto);
-        
         System.out.println("   Név");
-        
-        //System.out.println("******************");
         System.out.println(csillagok);
-        
         System.out.println("        CÉG");
-        //System.out.println("******************");
         System.out.println(csillagok);
     }
-
 }
